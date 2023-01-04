@@ -1,22 +1,22 @@
-import React from "react";
-import "../styles/App.css";
+import React, { useState } from 'react';
 
 const App = () => {
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  const handleToggle = () => {
+    setShowWelcome(!showWelcome);
+  }
+
   return (
-    <div id="main">
-      <div id="welcome-div">
-        <h1>Welcome to Newton School!!</h1>
-      </div>
-      <div id="about-div">
-        <h1>
-          Newton School is a neo-university providing highly immersive tech
-          learning to millions of students, to tap into new-age tech
-          opportunities.
-        </h1>
-      </div>
-      <button id="toggle">Toggle</button>
+    <div>
+      {showWelcome ? (
+        <div id="welcome-div">Welcome</div>
+      ) : (
+        <div id="about-div">About</div>
+      )}
+      <button onClick={handleToggle}>Toggle</button>
     </div>
   );
-};
+}
 
 export default App;
